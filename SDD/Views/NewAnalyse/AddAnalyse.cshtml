@@ -1,0 +1,335 @@
+﻿
+@{
+    ViewData["Title"] = "AddAnalyse";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 80px;
+        max-width: 1200px; /* Daha mantıklı bir genişlik değeri */
+        margin: 20px auto;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    /* Sol İçerik */
+    .left-content {
+        width: 50%;
+    }
+
+        .left-content .greeting {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .left-content .name {
+            color: #d32f2f;
+        }
+
+        .left-content h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .left-content .description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .left-content ul {
+            list-style: none;
+        }
+
+            .left-content ul li {
+                margin-bottom: 10px;
+                font-size: 1rem;
+                color: #333;
+            }
+
+                .left-content ul li::before {
+                    content: '\2713';
+                    color: #4CAF50;
+                    font-weight: bold;
+                    display: inline-block;
+                    width: 20px;
+                }
+
+    /* Sağ İçerik */
+    .upload-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    .dashed-border {
+        border: 2px dashed #ccc;
+        padding: 40px;
+        text-align: center;
+        position: relative;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+    }
+
+        /* Köşe Efektleri */
+        .dashed-border::before,
+        .dashed-border::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 2px solid #333;
+        }
+
+        .dashed-border::before {
+            top: -10px;
+            left: -10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .dashed-border::after {
+            bottom: -10px;
+            right: -10px;
+            border-left: none;
+            border-top: none;
+        }
+
+    /* Yükleme İkonu */
+    .upload-icon img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .instruction {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .or-text {
+        font-size: 12px;
+        color: #aaa;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .custom-upload-button {
+        background-color: #c60f12;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: inline-block;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .custom-upload-button:hover {
+            background-color: #e02b2b;
+        }
+
+        .custom-upload-button input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+    .note {
+        font-size: 12px;
+        color: #777;
+        margin-top: 10px;
+    }
+
+</style>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt Hastalığı Tespiti</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <!-- Ana İçerik -->
+    <div class="container">
+        <div class="left-content">
+            <h1 style="color:#c60f12">Cildinizin Sağlığını Öğrenmek İçin Doğru Yerdesiniz!</h1>
+            <p class="description">
+                <h4>"Cildinize Dikkat Etmenin Tam Zamanı!"</h4>
+                ➪ Yüklediğiniz fotoğraf ile cilt sağlığınıza dair bilgi alabilirsiniz!
+                <h5>⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻</h5>
+                <br />
+
+                <h4>"Kendi Cilt Uzmanınız Olun!"</h4>
+                ➪ Yüklediğiniz fotoğrafı analiz ederek cilt sağlığınızı iyileştirecek öneriler sunuyoruz.
+            </p>
+            <ul>
+                <h5>⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻</h5>
+                <br />
+                <li>Çeşitli cilt sorunlarını tespit edin!</li>
+                <li>Kişiselleştirilmiş tedavi önerileri alın.</li>
+                <li>Sağlıklı bir cilt için erken teşhis fırsatını yakalayın!</li>
+            </ul>
+        </div>
+        <div class="upload-container">
+            <div class="dashed-border">
+                <div class="upload-icon">
+                    <img src="https://img.icons8.com/ios/50/000000/upload-to-cloud.png" alt="Upload Icon">
+                </div>
+                <p class="instruction">Fotoğrafı buraya bırakın</p>
+                <span class="or-text">YA DA</span>
+                <div class="custom-upload-button">
+                    İşlenecek fotoğrafını yükle!
+                    <input type="file" accept="image/*" />
+                </div>
+                <br />
+                <p class="note">(Net ve iyi aydınlatılmış bir selfie çekin!)</p>
+                <p class="note">(Yüzünüzü doğrudan gösterdiğinizden emin olun!)</p>
+                <p class="note">(Fotoğrafınız yalnızca analiz için kullanılacak ve asla paylaşılmayacaktır!)</p>
+            </div>
+            <button id="analyzeButton" style="margin-top: 20px; padding: 10px 20px; background-color: #c60f12; color: white; border: none; cursor: pointer;">
+                Gönder ve Analiz Et
+            </button>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.querySelector('.custom-upload-button input[type="file"]');
+        const dashedBorder = document.querySelector('.dashed-border');
+        const uploadIcon = document.querySelector('.upload-icon');
+        const instruction = document.querySelector('.instruction');
+        const analyzeButton = document.getElementById('analyzeButton');
+        let base64Image = ""; // Seçilen görüntüyü tutmak için
+
+        // Görüntü seçildiğinde işle
+        fileInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Base64'e çevir ve sakla
+                    base64Image = e.target.result;
+
+                    // Görseli göster
+                    uploadIcon.innerHTML = '';
+                    instruction.textContent = '';
+                    const img = document.createElement('img');
+                    img.src = base64Image;
+                    img.style.maxWidth = '100%';
+                    img.style.maxHeight = '300px';
+                    img.style.objectFit = 'contain';
+
+                    dashedBorder.innerHTML = '';
+                    dashedBorder.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+        base64Image = e.target.result.split(',')[1];
+
+        // Görüntü boyutunu küçültme
+        reader.onload = function (e) {
+            const img = new Image();
+            img.onload = function () {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 800;
+                const MAX_HEIGHT = 800;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                // Sıkıştırılmış base64
+                base64Image = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
+
+                // Görüntüyü göster
+                const displayImg = document.createElement('img');
+                displayImg.src = 'data:image/jpeg;base64,' + base64Image;
+                displayImg.style.maxWidth = '100%';
+                displayImg.style.maxHeight = '300px';
+                displayImg.style.objectFit = 'contain';
+
+                dashedBorder.innerHTML = '';
+                dashedBorder.appendChild(displayImg);
+            }
+            img.src = e.target.result;
+        };
+
+        // Button'a tıklandığında API isteği yap
+        analyzeButton.addEventListener('click', function () {
+            if (!base64Image) {
+                alert('Lütfen bir fotoğraf seçin!');
+                return;
+            }
+
+            fetch('http://localhost:5166/api/Values/send-base64-image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ imageBase64: base64Image })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('API çağrısı başarısız!');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    alert(`Analiz Başarılı: ${JSON.stringify(data)}`);
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                    alert('Bir sorun oluştu, lütfen tekrar deneyin.');
+                });
+        });
+    });
+</script>
+</html>

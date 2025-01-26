@@ -1,0 +1,265 @@
+﻿
+@{
+    Layout = null;
+}
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;  
+}
+
+.logo {
+    position: absolute;
+    top: -30px; 
+    left: 20px; 
+    display:flex;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    border-radius: 5px;
+    display:flex;
+}
+
+    .buttons {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        display: flex;
+        gap: 10px; /* Butonlar arasındaki boşluk */
+        flex-wrap: nowrap; /* Yan yana taşma durumunda satır yapmaması için */
+        justify-content: flex-end; /* Sağ tarafa yaslamak için */
+        align-items: center;
+    }
+
+.btn-custom {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-black {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-custom:hover {
+    transform: scale(1.1); 
+}
+
+.content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px; 
+    box-sizing: border-box;
+}
+
+h4 {
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300; 
+    font-size: 24px;  
+    margin-bottom: 10px;  
+    letter-spacing: 1px;  
+    line-height: 1.6;  
+}
+
+h1 {
+    margin: 5px 0; 
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700;  
+    font-size: 62px;  
+    transition: transform 0.3s ease;
+    white-space: nowrap; 
+}
+
+.fw-lighter {
+    margin-top: 20px;  
+    margin-bottom: 15px;  
+    font-family: 'Open Sans', sans-serif; 
+    font-weight: 300; 
+    font-size: 16px;
+    line-height: 1.6;  
+    transition: transform 0.3s ease; 
+    text-align: center;  
+    width: 100%;
+    padding: 0 20px; 
+    box-sizing: border-box; 
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+h4:hover, h1:hover, .fw-lighter:hover {
+    transform: scale(1.1); 
+}
+
+.btn-start {
+    background-color: #c91306; 
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 50px; 
+    display: block;  
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-start:hover {
+    transform: scale(1.1); 
+    background-color: #c30d0d; 
+}
+
+.btn-start:active {
+    transform: scale(1);
+}
+
+    h1 {
+        font-size: 38px; 
+    }
+
+    h4 {
+        font-size: 20px; 
+    }
+
+    .fw-lighter {
+        font-size: 16px; 
+        font-family:Arial;
+    }
+
+    .logo img {
+        width: 120px; 
+    }
+
+    .btn-custom {
+        width: 100px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .btn-start {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    .buttons {
+        flex-direction: column; 
+        align-items: center; 
+        gap: 20px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .button-container {
+        position: absolute;
+        top: 20px; /* Üstten boşluk */
+        right: 20px; /* Sağdan boşluk */
+        display: flex;
+        gap: 10px; /* Butonlar arasındaki boşluk */
+    }
+
+    .btn {
+        width: 120px;
+        height: 40px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 20px; /* Oval kenarlar */
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Siyah buton */
+    .btn-black {
+        background-color: #000;
+        color: #fff;
+    }
+
+        .btn-black:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+    /* Beyaz buton */
+    .btn-white {
+        background-color: #fff;
+        color: #000;
+        border: 2px solid #ffff;
+    }
+
+        .btn-white:hover {
+            background-color: #f4f4f4;
+            transform: scale(1.1);
+        }
+
+</style>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cilt Sorunları Analizi</title>
+    <link rel="stylesheet" href="tanitim.css">
+</head>
+<body>
+
+    <div class="content">
+     <div>
+        <div class="logo">
+            <img src="/images/logo2.png" alt="Logo">
+        </div>
+
+            <div class="button-container">
+                <button class="btn btn-black" onclick="window.location.href='/LoginPage/Login'">Giriş Yap</button>
+                <button class="btn btn-white" onclick="window.location.href='/Register/RegisterPage'">Kaydol</button>
+            </div>
+     </div>
+
+        <h4>Cildinizi keşfetmenizin zamanı geldi! </h4>
+        <h1>Cilt Sorunlarınızı Analiz Edin</h1>
+        <h1>Sağlıklı Bir Görünüme Kavuşun</h1>
+
+        <p class="fw-lighter">
+            Cildiniz, sağlığınızın aynasıdır. Cildinizi keşfedin, profesyonel analiz ile sağlıklı bir görünüm kazanmak için
+            ilk adımı atın. Geliştirdiğimiz bu teknoloji sayesinde cilt problemlerinizi erken tespit edin. Uzmanlar tarafından önerilen kişisel bakım planlarıyla,
+            cildinizin ihtiyaçlarına özel çözümler elde edin. Ardından daha sağlıklı ve canlı bir cilde sahip olmanın keyfini çıkarın!
+        </p>
+
+            <button class="btn-start" onclick="window.location.href='/LoginPage/Login'">Hadi Başlayalım!</button>
+    </div>
+</body>
+</html>
+

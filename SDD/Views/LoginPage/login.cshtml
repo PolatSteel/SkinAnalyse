@@ -1,0 +1,210 @@
+﻿@model IEnumerable<EntityLayer.Concrate.User>
+@{
+    Layout = null;
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .header {
+        background-color: #E02424;
+        padding: 15px 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        height: 80px;
+    }
+
+        .header img {
+            width: 150px;
+            height: auto;
+        }
+
+        .header .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .header .buttons button {
+                margin-left: 10px;
+                background-color: black;
+                color: white;
+                padding: 10px 25px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                .header .buttons button:first-child {
+                    background-color: #E02424;
+                    color: white;
+                }
+
+                .header .buttons button:nth-child(1) {
+                    background-color: rgb(255, 255, 255);
+                    color: rgb(0, 0, 0);
+                    border-radius: 10;
+                    padding: 10px 25px;
+                    font-size: 15px;
+                }
+
+                .header .buttons button:first-child:hover {
+                    background-color: #c50c0c;
+                }
+
+                .header .buttons button:nth-child(1):hover {
+                    background-color: #555;
+                }
+
+    .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .icon {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .icon img {
+            width: 500px;
+            height: 500px;
+            border: 5px solid #ffffff;
+            border-radius: 50%;
+            padding: 25px;
+            margin-left: -330px
+        }
+
+    .form-container {
+        flex: 1;
+        max-width: 450px;
+        margin-left: -20px;
+    }
+
+        .form-container h1 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            margin-left: -270px
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #000000;
+            border-radius: 30px;
+            display: block;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #555;
+            margin-left: -150px
+        }
+
+        .form-container input::placeholder {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .form-container input:focus {
+            outline: none;
+            border-color: #E02424;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #E02424;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            margin-left: -150px
+        }
+
+            .form-container button:hover {
+                background-color: #c81f1f;
+            }
+
+        .form-container p {
+            margin-top: -10px;
+            font-size: 16px;
+            text-align: center;
+            margin-left: -270px
+        }
+
+        .form-container a {
+            color: #E02424;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+            .form-container a:hover {
+                color: #c81f1f;
+            }
+</style>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDD - Giriş Yap</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="header">
+        <!-- Logo Kısmı -->
+        <img src="/images/logo2.png" alt="Logo">
+        <div class="buttons">
+            <button class="login-btn" onclick="window.location.href='/Register/RegisterPage'">Kaydol</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <img src="/images/imgFace.jpg" alt="Analysis Icon">
+        </div>
+        <div class="form-container">
+            <h1 style="font-family:Arial">Analiz yapmaya devam</h1>
+            <h1 style="font-family:Arial"> etmek için oturum açın</h1>
+
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <p style="color: red;">@ViewBag.ErrorMessage</p>
+            }
+
+            <form method="post">
+                <input type="text" name="NameOrEmail" placeholder="Kullanıcı Adı veya E-posta" required>
+                <input type="password" name="PassWord" placeholder="Şifre" required> 
+                <button type="submit">Giriş Yap</button>
+            </form>
+            <p>
+                Hesabınız yok mu? <a href="/Register/RegisterPage">Kaydol</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+

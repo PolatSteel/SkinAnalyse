@@ -1,0 +1,17 @@
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\BusinessLayer.deps.json
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\BusinessLayer.dll
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\BusinessLayer.pdb
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\DataAccessLayer.dll
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\EntityLayer.dll
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\DataAccessLayer.pdb
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\bin\Debug\net8.0\EntityLayer.pdb
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\Business.EA331CBA.Up2Date
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.dll
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\refint\BusinessLayer.dll
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\BusinessLayer.pdb
+C:\Users\emiru\Desktop\Web Geliştirme\SkinAnalyse\BusinessLayer\obj\Debug\net8.0\ref\BusinessLayer.dll

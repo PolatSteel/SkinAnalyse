@@ -1,0 +1,229 @@
+﻿@{
+    ViewData["Title"] = "ComentPage";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Değerlendirmeleri</title>
+    <link rel="stylesheet" href="comment.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('arka kapak tasarım.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            font-size: 40px;
+            font-weight: lighter;
+            color: #8B0000;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            grid-row-gap: 80px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 30px;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: rgba(223, 51, 51, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 15px;
+        }
+
+            .card img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 8px;
+                transition: transform 0.3s ease;
+                cursor: pointer;
+                border-bottom: 2px solid rgba(245, 233, 233, 0.2);
+            }
+
+            .card:hover img {
+                transform: scale(1.1);
+            }
+
+            .card .info {
+                margin-top: 15px;
+                padding: 10px;
+                text-align: left;
+            }
+
+                .card .info h3 {
+                    margin: 0 0 10px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #5A0000;
+                    text-decoration: underline;
+                }
+
+                .card .info p {
+                    margin: 8px 0;
+                    font-size: 14px;
+                    color: #3E0000;
+                    font-weight: 600;
+                }
+
+                    .card .info p:first-of-type {
+                        margin-top: 15px;
+                        font-size: 15px;
+                        font-weight: bold;
+                        color: #5A0000;
+                    }
+
+                    .card .info p:first-of-type,
+                    .card .info p:nth-of-type(2) {
+                        text-indent: 0;
+                        margin-left: 0;
+                    }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(245, 241, 241, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+            .modal img {
+                max-width: 90%;
+                max-height: 90%;
+                border-radius: 10px;
+            }
+
+            .modal .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 30px;
+                color: rgb(79, 0, 0);
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <h1 class="title">Değerlendirmeler</h1>
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="4.jpeg" alt="Akne Sorunu" onclick="openModal(this)">
+            <div class="info">
+                <h3>Tarih: 01/01/2024</h3>
+                <p>• Analiz sonucu    : Akne problemi </p>
+                <p>• Kullanıcı Yorumu : </p>
+                <p>" Tedavi önerileri çok faydalı oldu, sivilcelerim azalmaya başladı."</p>
+            </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="1.jpeg" alt="Kuru Cilt Sorunu" onclick="openModal(this)">
+            <div class="info">
+                <h3>Tarih: 02/01/2024</h3>
+                <p>• Analiz sonucu : Cilt kuruluğu </p>
+                <p>• Kullanıcı Yorumu : </p>
+                <p>" Nemlendirici önerisi mükemmel çalıştı, cildim çok daha iyi durumda. "</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="6.png" alt="Lekeler" onclick="openModal(this)">
+            <div class="info">
+                <h3>Tarih: 03/01/2024</h3>
+                <p>• Analiz sonucu :    Güneş lekeleri </p>
+                <p>• Kullanıcı Yorumu : </p>
+                <p>" Lekelerim henüz tam geçmedi ama azalma var, tedaviye devam ediyorum. "</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="3.jpeg" alt="Yağlı Cilt Sorunu" onclick="openModal(this)">
+            <div class="info">
+                <h3>Tarih: 04/01/2024</h3>
+                <p>• Analiz sonucu : Yağlı cilt</p>
+                <p>• Kullanıcı Yorumu : </p>
+                <p>" Önerilen ürünler cilt yağını dengeledi, sonuçtan çok memnunum. "</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="5.png" alt="Egzama" onclick="openModal(this)">
+            <div class="info">
+                <h3>Tarih: 05/01/2024</h3>
+                <p>• Analiz sonucu : Egzama belirtileri </p>
+                <p>• Kullanıcı Yorumu : </p>
+                <p>" Tavsiyeler sayesinde kaşıntı azaldı, çok teşekkür ederim! "</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="2.jpeg" alt="Cilt Kızarıklığı" onclick="openModal(this)">
+            <div class="info">
+                <h3>Tarih: 06/01/2024</h3>
+                <p>• Analiz sonucu : Hassasiyet ve kızarıklık </p>
+                <p>• Kullanıcı Yorumu : </p>
+                <p>" Önerilen ürünler cilt hassasiyetimi çok iyi yatıştırdı, harika bir destek oldu. " </p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modal for image viewing -->
+    <div class="modal" id="modal">
+        <img id="modal-img" src="" alt="Büyütülmüş Fotoğraf">
+        <button class="close-btn" onclick="closeModal()">×</button>
+    </div>
+
+    <script>
+        // JavaScript kodu
+        function openModal(imgElement) {
+            var modal = document.getElementById("modal");
+            var modalImg = document.getElementById("modal-img");
+            modal.style.display = "flex";  // Modal'ı görünür yap
+            modalImg.src = imgElement.src; // Modal'daki resmi güncelle
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("modal");
+            modal.style.display = "none";  // Modal'ı gizle
+        }
+    </script>
+
+</body>
+</html>

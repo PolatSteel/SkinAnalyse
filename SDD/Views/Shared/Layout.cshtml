@@ -1,0 +1,182 @@
+﻿<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background-color: #f9f9f9;
+}
+
+
+header {
+    background-color:rgba(181, 0, 0, 0.833); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo-container {
+    display: inline-block;
+   
+}
+
+.logo-container .logo {
+    height: 50px;
+    width: auto;
+    margin-left: 53px; 
+    transform: scale(3.7); 
+    transform-origin:center; 
+}
+
+
+
+.menu-container {
+    display: flex;
+    align-items: center;
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-right: 30px; 
+}
+
+.menu li:last-child {
+    margin-right: 15; 
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.menu li a:hover {
+    color: #000000;
+    font-weight: 500;
+}
+
+
+
+.user-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: rgb(228, 191, 191);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-button:hover {
+    background-color: #ddd;
+}
+
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background-color: rgb(228, 191, 191);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(66, 8, 8, 0.1);
+}
+
+
+.menu-container:hover .dropdown-menu {
+    display: block;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menü Tasarımı</title>
+    <link rel="stylesheet" href="layout.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+   
+    <header>
+        
+        <div class="logo-container">
+            <img src="/images/logo2.png" alt="Logo" class="logo">
+        </div>
+
+        
+        <nav class="menu-container">
+            <ul class="menu">
+                <li><a href="/HomePage/AnaSayfa">Ana Sayfa</a></li>
+                <li><a href="/NewAnalyse/AddAnalyse">Yeni Analiz</a></li>
+                <li><a href="/History/HistoryPage">Geçmiş Analizler</a></li>
+                <li><a href="/Contact/iletisim">İletişim</a></li>
+                <li><a href="/Coment/ComentPage">Yorumlar</a></li>
+            </ul>
+
+            
+            <button class="user-button" id="userButton">
+                <i class="bi bi-person-lines-fill"></i>
+            </button>
+
+           
+            <ul class="dropdown-menu" id="dropdownMenu">
+                <li><a href="#ayarlar">Ayarlar</a></li>
+                <li><a href="#cikis">Çıkış Yap</a></li>
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
+   
+    <script>
+        const userButton = document.getElementById('userButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        userButton.addEventListener('click', () => {
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!userButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

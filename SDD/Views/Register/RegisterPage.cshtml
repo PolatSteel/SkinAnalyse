@@ -1,0 +1,214 @@
+﻿@model IEnumerable<EntityLayer.Concrate.User>
+@{
+    Layout = null;
+}
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        height: 100vh;
+        background-image: url('image/arka kapak tasarım.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+    }
+
+    .header {
+        background-color: #E02424;
+        padding: 15px 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        height: 80px;
+    }
+
+        .header img {
+            width: 150px;
+            height: auto;
+        }
+
+        .header .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .header .buttons button {
+                margin-left: 10px;
+                background-color: black;
+                color: white;
+                padding: 10px 25px;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                .header .buttons button:first-child {
+                    background-color: #E02424;
+                    color: white;
+                }
+
+                .header .buttons button:nth-child(1) {
+                    background-color: rgb(255, 255, 255);
+                    color: rgb(0, 0, 0);
+                    border-radius: 10;
+                    padding: 10px 25px;
+                    font-size: 15px;
+                }
+
+                .header .buttons button:first-child:hover {
+                    background-color: #c50c0c;
+                }
+
+                .header .buttons button:nth-child(1):hover {
+                    background-color: #555;
+                }
+
+    .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .icon {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .icon img {
+            width: 500px;
+            height: 500px;
+            border: 5px solid #ffffff;
+            border-radius: 50%;
+            padding: 25px;
+            margin-left: -330px;
+        }
+
+    .form-container {
+        flex: 1;
+        max-width: 450px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        position: relative;
+        left: -180px;
+    }
+
+        .form-container h1 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            margin-left: 0;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"],
+        .form-container input[type="email"] {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #000000;
+            border-radius: 30px;
+            display: block;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .form-container input::placeholder {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .form-container input:focus {
+            outline: none;
+            border-color: #E02424;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #E02424;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+            .form-container button:hover {
+                background-color: #c81f1f;
+            }
+
+        .form-container p {
+            margin-top: -10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .form-container a {
+            color: #E02424;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+            .form-container a:hover {
+                color: #c81f1f;
+            }
+
+</style>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDD - Kayıt Ol</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="header">
+
+        <img src="/images/logo2.png" alt="Logo">
+        <div class="buttons">
+
+            <button onclick="window.location.href='/LoginPage/Login'">Oturum Aç</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="icon">
+            <img src="/images/imgFace.jpg" alt="Register Icon">
+        </div>
+        <div class="form-container">
+            <h1>Analiz yapmaya devam</h1>
+            <h1>etmek için kayıt olun</h1>
+
+            <form method="post" action="RegisterPage">
+                <input type="text" name="UserName" placeholder="Kullanıcı Adı" required>
+                <input type="text" name="Name" placeholder="isminiz" required>
+                <input type="email" name="Email" placeholder="E-posta" required>
+                <input type="password" name="PassWord" placeholder="Şifre" required>
+                <button type="submit">Kaydol</button>
+            </form>
+
+            <p>
+                Zaten bir hesabınız var mı? <a href="/LoginPage/Login">Oturum Aç</a>
+
+            </p>
+        </div>
+    </div>
+</body>
+</html>

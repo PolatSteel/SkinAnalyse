@@ -1,0 +1,374 @@
+﻿@model IEnumerable<EntityLayer.Concrate.Login>
+@{
+    Layout = null;
+}
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-image: url('arka kapak tasarım.png');
+    background-size: cover; /* Görseli tam ekran sığacak şekilde ayarla */
+    background-position: center center; /* Görseli ortala */
+    background-attachment: fixed; /* Görsel sabit kalsın, kaymasın */
+    background-repeat: no-repeat;
+    height: 100vh; /* Ekranın tamamını kaplasın */
+    overflow: hidden; /* Kaydırma çubuğunu gizler */
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.left-side {
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 190px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+}
+
+.left-side h1 {
+    font-size: 70px;
+    color: #c60f12;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    margin-top: -80px;
+    margin-left: 50px;
+}
+
+.left-side p:first-of-type {
+    font-size: 20px;
+    font-weight: 300;
+    color: #361112;
+    font-family: 'Lora', serif;
+    margin-bottom: -20px;
+    margin-left: 50px;
+}
+
+.left-side p:last-of-type {
+    font-size: 20px;
+    font-weight: 300;
+    color: #361112;
+    font-family: 'Lora', serif;
+    margin-bottom: 30px;
+    margin-left: 50px;
+}
+
+/* Check icons and tooltip styles */
+.check-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 90px;
+    margin-bottom: -20px;
+}
+
+.check-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+.check-item i {
+    font-size: 25px;
+    color: #d61317;
+    transition: transform 0.3s ease;
+    font-family: 'Times New Roman', serif;
+}
+
+.check-item:hover i {
+    transform: scale(1.2);
+}
+
+.check-item span {
+    font-size: 18px;
+}
+
+.check-item span:last-child {
+    font-size: 16px;
+    color: rgb(67, 7, 7);
+}
+
+.check-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    transform: translateX(10px);
+    background-color: rgba(178, 97, 97, 0.837);
+    color: rgb(231, 222, 222);
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-size: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+}
+
+
+/* Logo */
+.logo {
+    height: 190px;
+    margin-top: -40px;
+    position: absolute;
+    left: 20px; /* Logo sol köşeye yerleştirildi */
+    top: -23px;
+}
+
+/* Menü container */
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Menü öğeleri sağa yaslanır */
+    background-color: rgba(181, 0, 0, 0.833);
+    padding: 13px 60px; /* Sağdan ve soldan ekstra padding ekleyerek genişlik artırılır */
+    border-radius: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 95%; /* Menü genişliği ekranın tamamı, ihtiyaca göre arttırılabilir */
+}
+
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    margin-right: 20px;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 16px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #36211b;
+    transform: scale(1.2);
+}
+
+/* Kullanıcı butonu stilleri */
+.user-button {
+    margin-left: 40px;
+    background-color: rgb(228, 191, 191);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(66, 8, 8);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.user-button:hover {
+    transform: scale(1.2);
+}
+
+.user-button i {
+    font-size: 24px;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: -300px;
+    margin-left: auto;
+    margin-right: 290px;
+    padding: 20px;
+}
+
+/* Bildirim kutusu stilleri */
+.notification-box {
+    width: 180%;
+    max-width: 400px;
+    background-color: #e7dbb7;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    top: -110px;
+}
+
+.notification-box i {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #ffc107;
+}
+
+.notification-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.notification-box h3 {
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.notification-box p {
+    margin: 5px 0 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.notification-box:active {
+    transform: scale(0.95);
+}
+/* Yeni Analiz Butonu */
+.new-analysis-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.new-analysis-button {
+    display: flex;
+    justify-content: flex-end;  /* Butonu sağa kaydırır */
+    position: relative;  /* Konumlandırma yapılabilmesi için relative konum kullanılır */
+    top: -80px;  /* Butonu yukarıya doğru kaydırır */
+    right: -95px;  /* Butonu sağa doğru kaydırır */
+}
+
+.new-analysis-button button {
+    background-color: #c60f12;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatay Menü</title>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <div class="header">
+        <img src="/images/logo2.png" alt="Logo" class="logo">
+        <div class="menu-container">
+            <ul class="menu">
+                <li><a href="/NewAnalyse/AddAnalyse">Yeni Analiz</a></li>
+                <li><a href="#gecmis-analizler">Geçmiş Analizler</a></li>
+                <li><a href="/Contact/iletisim">İletişim</a></li>
+            </ul>
+            <button class="user-button" onclick="location.href='#ayarlar'">
+                <i class="bi bi-person-lines-fill"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Sol taraf içerik -->
+        <div class="left-side">
+            <h1>Merhaba @ViewBag.UserName</h1>
+            <p>Cildinizde oluşan çeşitli sorunları </p>
+            <p>saniyeler içerisinde birlikte keşfedelim</p>
+            <div class="check-icons">
+                <div class="check-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Hızlı ve Doğru Tespit </span>
+                    <div class="tooltip">Gelişmiş yapay zeka desteğiyle cilt sorunlarınızı saniyeler içinde tanımlayın.</div>
+                </div>
+                <div class="check-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Kişiye Özel Öneriler</span>
+                    <div class="tooltip"> Cilt tipinize uygun, özelleştirilmiş bakım ve tedavi çözümleri alın.</div>
+                </div>
+                <div class="check-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Güvenilir ve Bilimsel</span>
+                    <div class="tooltip">Dermatolog onaylı analizler ile güvenilir sonuçlara ulaşın.</div>
+                </div>
+                <div class="check-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Kolay Kullanım</span>
+                    <div class="tooltip"> Herkesin rahatlıkla kullanabileceği, kullanıcı dostu bir arayüz.</div>
+                </div>
+                <div class="check-item">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Gizlilik ve Güvenlik</span>
+                    <div class="tooltip">Cilt verileriniz güvende, sadece sizin kontrolünüzde.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sağ taraf içerik -->
+        <div class="right-side">
+            <div class="notification-box" onclick="location.href='#gecmis-analizler'">
+                <i class="bi bi-bell-fill"></i> 
+                <h3>28.12.2023</h3>
+                <p>Seboreik Egzama Tespiti </p>
+            </div>
+            <div class="notification-box" onclick="location.href='#gecmis-analizler'">
+                <i class="bi bi-bell-fill"></i>
+                <h3>10.03.2024</h3>
+                <p>Ürtiker Tespiti</p>
+            </div>
+            <div class="notification-box" onclick="location.href='#gecmis-analizler'">
+                <i class="bi bi-bell-fill"></i> 
+                <h3>12.12.2024</h3>
+                <p>Akne Tespiti</p>
+            </div>
+          
+            <div class="new-analysis-button">
+                <button onclick="location.href='/NewAnalyse/AddAnalyse'">
+                    Keşif İçin Yeni Analiz
+                </button> 
+                <button onclick="location.href='/Coment/ComentPage'">
+                    Yorumlar
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
